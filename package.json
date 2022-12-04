@@ -1,5 +1,5 @@
 {
-  "name": "chatgpt",
+  "name": "chatgpt.js",
   "version": "0.0.1",
   "description": "A simple wrapper to allow integration with the ChatGPT beta.",
   "main": "dist/index.ts",
