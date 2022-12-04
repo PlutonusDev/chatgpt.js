@@ -1,8 +1,8 @@
 {
   "name": "chatgpt.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple wrapper to allow integration with the ChatGPT beta.",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "repository": "https://github.com/PlutonusDev/chatgpt",
   "author": "Joshua Hughes <joshua@plutonus.dev>",
   "license": "GPL-3.0",
