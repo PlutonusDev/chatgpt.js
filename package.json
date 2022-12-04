@@ -1,6 +1,6 @@
 {
   "name": "chatgpt",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple wrapper to allow integration with the ChatGPT beta.",
   "main": "dist/index.ts",
   "repository": "https://github.com/PlutonusDev/chatgpt",
