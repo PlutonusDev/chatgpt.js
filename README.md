@@ -2,9 +2,6 @@
 
 ## chatgpt.js
 
-[![](https://img.shields.io/github/issues/PlutonusDev/chatgpt)](https://github.com/PlutonusDev/chatgpt/issues)
-[![](https://snyk.io/test/github/PlutonusDev/chatgpt)]()
-
 > ` chatgpt.js ` is a basic NodeJS library enabling users to programmatically interact with the brand new ChatGPT public beta.
 
 ---
