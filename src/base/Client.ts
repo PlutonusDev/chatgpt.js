@@ -48,7 +48,7 @@ export default class ChatGPTClient {
                 method: "POST",
                 headers: {
                     ...BaseInfo.Headers,
-                    "Authorization": `Bearser ${this.config.authToken}`
+                    "Authorization": `Bearer ${this.config.authToken}`
                 },
                 data: reqData
             }).catch(e => rej(`${e.code} - ${e.response.data.detail.code}`));
