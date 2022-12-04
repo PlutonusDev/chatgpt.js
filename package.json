@@ -6,10 +6,16 @@
   "repository": "https://github.com/PlutonusDev/chatgpt",
   "author": "Joshua Hughes <joshua@plutonus.dev>",
   "license": "GPL-3.0",
-  "devDependencies": {
-    "typescript": "^4.9.3"
+  "scripts": {
+    "build": "npx tsc",
+    "prepack": "yarn build",
+    "test": "node tests/basicUse"
   },
   "dependencies": {
     "axios": "^1.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "yarn": "^1.22.19"
   }
 }

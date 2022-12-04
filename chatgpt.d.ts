@@ -1,11 +1,12 @@
 interface ClientConfig {
-    authToken: String
+    authToken: String;
 }
 
 interface APIResponse {
-    data: String
+    data: String;
 }
 
 interface Conversation {
-    
+    id: String;
+    parent_id: String;
 }

@@ -25,6 +25,8 @@ export default class ChatGPTClient {
      */
     call(prompt: String, conversation_id?: String,) {
         return new Promise((res, rej) => {
+            const cached = this.conversationCache.find(conv => conv.id === conversation_id || null);
+
             axios({
                 url: BaseInfo.Endpoint,
                 method: "POST",
@@ -34,6 +36,7 @@ export default class ChatGPTClient {
                 },
                 data: {
                     ...BaseInfo.Data,
+                    "parent_message_id": cached?.parent_id,
                     "conversation_id": conversation_id,
                     "messages": {
                         "content": {
@@ -43,6 +46,15 @@ export default class ChatGPTClient {
                 },
                 transformResponse: (r: APIResponse) => r.data
             }).then(resp => {
+                if(!cached || !conversation_id) {
+                    this.conversationCache.push({
+                        id: resp.data?.conversation_id,
+                        parent_id: resp.data?.message?.id
+                    });
+                } else {
+                    cached.parent_id = resp.data?.message?.id;
+                }
+
                 res({
                     text: resp.data?.message?.contents?.parts[0]
                 });
