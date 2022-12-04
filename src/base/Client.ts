@@ -1,5 +1,6 @@
 import axios from "axios";
 import BaseInfo from "../util/requests";
+import Helpers from "../util/helpers";
 
 /** The base ChatGPT Client */
 export default class ChatGPTClient {
@@ -23,43 +24,42 @@ export default class ChatGPTClient {
      * @returns {Promise<ApiResponse>} The API response text
      * @async
      */
-    call(prompt: String, conversation_id?: String,) {
-        return new Promise((res, rej) => {
+    async call(prompt: String, conversation_id?: String,) {
+        return new Promise(async (res, rej) => {
             const cached = this.conversationCache.find(conv => conv.id === conversation_id || null);
+            //let responses: APIResponse[] = [];
 
-            axios({
+            const reqData: APIRequest = {
+                ...BaseInfo.Data,
+                "parent_message_id": cached?.parent_id || Helpers.generateID(),
+                "messages": [{
+                    "role": "user",
+                    "id": Helpers.generateID(),
+                    "content": {
+                        "content_type": "text",
+                        "parts": [ prompt ]
+                    }
+                }]
+            }
+            if(conversation_id) reqData["conversation_id"] = conversation_id;
+
+            const resp = await axios({
                 url: BaseInfo.Endpoint,
                 method: "POST",
                 headers: {
                     ...BaseInfo.Headers,
-                    "Authorization": `Bearer ${this.config.authToken}`
+                    "Authorization": `Bearser ${this.config.authToken}`
                 },
-                data: {
-                    ...BaseInfo.Data,
-                    "parent_message_id": cached?.parent_id,
-                    "conversation_id": conversation_id,
-                    "messages": {
-                        "content": {
-                            "parts": [ prompt ]
-                        }
-                    }
-                },
-                transformResponse: (r: APIResponse) => r.data
-            }).then(resp => {
-                if(!cached || !conversation_id) {
-                    this.conversationCache.push({
-                        id: resp.data?.conversation_id,
-                        parent_id: resp.data?.message?.id
-                    });
-                } else {
-                    cached.parent_id = resp.data?.message?.id;
-                }
+                data: reqData
+            }).catch(e => rej(`${e.code} - ${e.response.data.detail.code}`));
 
-                res({
-                    text: resp.data?.message?.contents?.parts[0]
-                });
-            }).catch(err => {
-                rej(`Something went wrong! ${err.message}`);
+            const finalData = resp?.data.split("\n\n");
+            if(!finalData) {
+                return rej("Something went wrong getting the response from OpenAI. Check your API key");
+            }
+
+            res({
+                text: JSON.parse(finalData[finalData.length - 4].split("data: ")[1]).message.content.parts[0]
             });
         });
     }

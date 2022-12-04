@@ -9,15 +9,8 @@ export default {
 
     Data: {
         "action": "next",
-        "conversation_id": "",
         "parent_message_id": "",
         "model": "text-davinci-002-render",
-        "messages": {
-            "role": "user",
-            "content": {
-                "content_type": "text",
-                "parts": []
-            }
-        }
+        "messages": []
     }
 }
