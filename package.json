@@ -1,6 +1,6 @@
 {
   "name": "chatgpt.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple wrapper to allow integration with the ChatGPT beta.",
   "main": "dist/index.js",
   "repository": "https://github.com/PlutonusDev/chatgpt",
