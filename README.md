@@ -63,4 +63,4 @@ Before **creating an issue**, please ensure that it hasn't already been reported
 
 ## Finally
 
-Thank you so much for visiting! I hope that my code is useful to you. I'd really appreciate a ⭐ if this helped you out. Cheers!
+Thank you so much for visiting! I hope that my code is useful to you. I'd really appreciate a ⭐ if this helped you out. Cheers! 😄
