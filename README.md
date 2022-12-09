@@ -18,20 +18,42 @@ To start using ` chatgpt.js ` in your project, follow this quick guide:
 
 **index.js**
 ```ts
-const ChatGPT = require("chatgpt.js");
+const GPTChat = require("../dist");
 const { authToken } = require("./config");
+const sleep = require("util").promisify(setTimeout);
 
-const Client = new ChatGPT.Client({ authToken });
+const chatgpt = new GPTChat.Client({ authToken });
 
-Client.call("hello there!").then(resp => {
+chatgpt.once("ready", async () => {
+    let resp = await chatgpt.call("hello there!").catch(e => console.log(e));
+    if(!resp) return console.error("looks like something went wrong :(");
     console.log(resp);
-}).catch(e => console.log(e));
+
+    await sleep(10000);
+    
+    resp = await chatgpt.call("what is the scientific name for the common house finch?", resp.conversation).catch(e => console.log(e));
+    if(!resp) return console.error("looks like something went wrong :(");
+    console.log(resp);
+});
+
+chatgpt.on("debug", m => console.log(`DEBUG: ${m}`));
+chatgpt.on("error", m => console.error(`ERROR: ${m}`));
 
 /*
     Output:
 
+    DEBUG: sessionKey updated to: (...)fqJbBV3WQ.W8IAmqiEwjO-Uyw9ub2Zsg
     {
-        text: "Hello! How can I help you today? Is there something on your mind that you'd like to talk about? I'm a large language model trained by OpenAI, so I'm here to help answer any questions you might have. Let me know if there's anything I can do for you."
+        text: 'Hello! How can I help you today?',
+        conversation: '4e294a80-5daf-4322-8077-dc4d58affa1a',
+        parent_message: 'a5f3b506-232a-414f-999a-161cd1ee26b3'
+    }
+    DEBUG: sessionKey updated to: (...)FTpYIborA.5t64dn9PjQsM-abpr1GaYw
+    DEBUG: Found cached conversation: {"id":"4e294a80-5daf-4322-8077-dc4d58affa1a","parent_id":"a5f3b506-232a-414f-999a-161cd1ee26b3"}
+    {
+        text: 'The scientific name for the common house finch is Haemorhous mexicanus. This species is a small, seed-eating bird native to North America. It is often found in urban and suburban areas, where it feeds on a variety of seeere it feeds on a variety of seeds and other plant material. The male of the species is easily recognizable by its bright red head and breast.',
+        conversation: '4e294a80-5daf-4322-8077-dc4d58affa1a',
+        parent_message: 'ab4ff136-625f-41d9-b283-2c154230b76e'
     }
 */
 ```
