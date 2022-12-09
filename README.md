@@ -2,7 +2,14 @@
 
 ## chatgpt.js
 
-> ` chatgpt.js ` is a basic NodeJS library enabling users to programmatically interact with the brand new ChatGPT public beta.
+> Interact with OpenAI's ChatGPT unofficial API programatically.
+
+<div style="float: middle">
+    <img src="https://img.shields.io/badge/-npm%20i%20chatgpt.js-blue?style=flat-square&logo=npm">
+    <img src="https://img.shields.io/github/stars/PlutonusDev/chatgpt.js?label=Stars&style=flat-square&logo=github">
+    <img src="https://img.shields.io/npm/dm/chatgpt.js?label=Downloads&style=flat-square&logo=npm">
+    <img src="https://img.shields.io/github/commit-activity/m/PlutonusDev/chatgpt.js?label=Commits&style=flat-square&logo=github">
+</div>
 
 ---
 
