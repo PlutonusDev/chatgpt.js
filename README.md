@@ -25,7 +25,7 @@ To start using ` chatgpt.js ` in your project, follow this quick guide:
 
 **index.js**
 ```ts
-const GPTChat = require("../dist");
+const GPTChat = require("chatgpt.js");
 const { authToken } = require("./config");
 const sleep = require("util").promisify(setTimeout);
 
