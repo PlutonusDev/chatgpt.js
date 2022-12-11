@@ -4,7 +4,7 @@
 
 > Interact with OpenAI's ChatGPT unofficial API programatically.
 
-<div style="float: middle">
+<div>
     <img src="https://img.shields.io/badge/-npm%20i%20chatgpt.js-blue?style=flat-square&logo=npm">
     <img src="https://img.shields.io/github/stars/PlutonusDev/chatgpt.js?label=Stars&style=flat-square&logo=github">
     <img src="https://img.shields.io/npm/dm/chatgpt.js?label=Downloads&style=flat-square&logo=npm">
@@ -90,6 +90,10 @@ Before **creating an issue**, please ensure that it hasn't already been reported
 
 ---
 
-## Finally
+<h2 align="center">Star History</h2>
 
-Thank you so much for visiting! I hope that my code is useful to you. I'd really appreciate a ⭐ if this helped you out. Cheers! 😄
+<div align="center">
+    <a href="https://star-history.com/#PlutonusDev/chatgpt.js&Timeline">
+        <img src="https://api.star-history.com/svg?repos=PlutonusDev/chatgpt.js&type=Timeline" />
+    </a>
+</div>
