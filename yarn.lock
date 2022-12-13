@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@types/node@^17.0.24":
+  version "17.0.45"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.45.tgz#2c0fafd78705e7a18b7906b5201a522719dc5190"
+  integrity sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==
+
 "@types/node@^18.11.10":
   version "18.11.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.10.tgz#4c64759f3c2343b7e6c4b9caf761c7a3a05cee34"
@@ -27,6 +32,14 @@ combined-stream@^1.0.8:
   integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
   dependencies:
     delayed-stream "~1.0.0"
+
+cycletls@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/cycletls/-/cycletls-1.0.21.tgz#b869d3690f4fd048b0ac586d6ba6915728ea1d9b"
+  integrity sha512-Ccox1s+3mhoc/SOlzAXH2EqyKPc3PlJ6WVvshgzBn99ihDSmp/GQJqPw7TKBLO5pJMZtrl9B7s8cMdrwOoORbQ==
+  dependencies:
+    "@types/node" "^17.0.24"
+    ws "^7.5.7"
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -68,6 +81,11 @@ typescript@^4.9.3:
   version "4.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
   integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
+
+ws@^7.5.7:
+  version "7.5.9"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
+  integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
 
 yarn@^1.22.19:
   version "1.22.19"
